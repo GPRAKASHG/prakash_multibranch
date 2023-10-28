@@ -1,23 +1,15 @@
-node('master')
-
+pipeline
 {
-
-stage('ContinuousDownload_master') 
-   
-	 {
-	
-    git 'https://github.com/sunildevops77/maven.git'
-    
-	}
-
-stage('Continuousbuild_master') 
-   
-	 {
-	
-   sh label: '', script: 'mvn package'
-	}
-
-
+    agent any
+    stages
+    {
+        stage('ContDownload')
+        {
+            steps
+            {
+                git 'https://github.com/GPRAKASHG/prakash_multibranch.git'
+            }
+       
+        }
+    }
 }
-
-
