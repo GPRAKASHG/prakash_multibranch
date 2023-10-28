@@ -17,3 +17,6 @@ pipeline
                 sh 'mvn package'
             }
         }
+    }
+
+}
