@@ -1,23 +1,19 @@
-node('built-in')
-
+pipeline
 {
-
-stage('ContinuousDownload_master') 
-   
-	 {
-	
-    git 'https://github.com/GPRAKASHG/multiBranch-mb.git'
-    
-	}
-
-stage('Continuousbuild_master') 
-   
-	 {
-	
-   sh label: '', script: 'mvn package'
-	}
-
-
-}
-
-
+    agent any
+    stages
+    {
+        stage('ContDownload')
+        {
+            steps
+            {
+                git 'https://github.com/GPRAKASHG/prakash_multibranch.git'
+            }
+        }
+        stage('ContBuild')
+        {
+            steps
+            {
+                sh 'mvn package'
+            }
+        }
